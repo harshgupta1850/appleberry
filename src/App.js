@@ -1,13 +1,27 @@
-import logo from './broad-logo.jpg';
-import './App.css';
+import { Fragment } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Root from "./Components";
+import Homepage from "./Components/Homepage";
+import Cart from "./Components/Cart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <Router>
+      <Fragment>
+        <Switch>
+          <Route exact path="/">
+            <Root />
+          </Route>
+          <Route exact path="/homepage">
+            <Homepage />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+        </Switch>
+      </Fragment>
+    </Router>
   );
 }
 
